@@ -53,7 +53,7 @@
     const resizePanel = (e) => {
         if (!isResizing) return;
 
-        panelLeft.style.width = `${e.clientX}px`;
+        panelLeft.style.width = `${e.clientX - resizeBar.offsetWidth}px`;
     }
     
     resizeBar.addEventListener('mousedown', startResizing);
