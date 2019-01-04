@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Split letter on hover</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+        families: ['Open+Sans:400,800']
+        }
+    });
+    </script>
+</head>
+<style>
+
+     /* Variables */
+
+    /* $open-sans: 'Open Sans', sans-serif; */
+    /* $transition: 0.2s; */
+
+    /* Styles */
+
+    body {
+        background-color: cadetblue;
+    }
+
+    .main {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .hover {
+        position: relative;
+        color: darkslategrey;
+        /* font-family: $open-sans; */
+        font-family: 'Open Sans', sans-serif;
+        font-size: 150px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+
+    .hover::before,
+    .hover::after {
+        content: attr(data-letters);
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: darkslategrey;
+        transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+
+    .hover::before {
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0 30%);
+    }
+
+    .hover::after {
+        clip-path: polygon(0 30%, 100% 70%, 100% 100%, 0 100%);
+    }
+
+    .hover:hover {
+        color: transparent;
+    }
+
+    .hover:hover::before {
+        color: white;
+        transform: translate3d(4px, -1px, 0);
+    }
+    
+    .hover:hover::after {
+        color: white;
+        transform: translate3d(-4px, 1px, 0);
+    }
+</style>
+<body>
+    <div class="main">
+        <a href="#" class="hover" data-letters="Hover">Hover</a>
+    </div>
+</body>
+</html>
