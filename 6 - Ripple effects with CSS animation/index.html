@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ripple effects with CSS animation</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .ripple {
+        color: darkseagreen;
+        position: relative;
+    }
+
+    .ripple::before,
+    .ripple::after  {
+        width: 50px;
+        height: 50px;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        /* border: 2px solid darkseagreen; */
+        box-shadow: inset 0 0 0 2px darkseagreen;
+        border-radius: 50%;
+        content: '';
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    .is-ripple-active::before {
+        animation: ripple 1.2s ease-out 5 forwards;
+    }
+
+    .is-ripple-active::after {
+        animation: ripple 1.2s ease-out 0.6s 5 forwards;
+    }
+
+    @keyframes ripple {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale3d(0.5, 0.5, 1);
+        }
+
+        40%,
+        60% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale3d(1.4, 1,4, 1);
+        }
+    }
+</style>
+<body>
+    <div class="main">
+        <a href="#" class="js-ripple-click ripple">Click me</a>
+    </div>
+</body>
+<script>
+    const btn = document.querySelector('.js-ripple-click');
+    const activeRipple = (e) => e.target.classList.add('is-ripple-active');
+    const deactiveRipple = (e) => e.target.classList.remove('is-ripple-active');
+
+    btn.addEventListener('click', activeRipple);
+    btn.addEventListener('animationend', deactiveRipple);
+</script>
+</html>
