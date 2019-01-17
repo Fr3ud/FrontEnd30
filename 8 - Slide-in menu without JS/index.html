@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Side-in menu without JS</title>
+</head>
+<style>
+
+    body {
+        background-color: black;
+    }
+
+    .main {
+        display: flex;
+        max-width: 100vw;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .nav__container {
+        max-width: 400px;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background-color: white;
+        will-change: transform;
+        transform: translate3d(100%, 0, 0);
+        transition: transform .5s ease;
+        z-index: 1;
+    }
+
+    .nav__checkbox:checked + .nav__container {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .nav__checkbox:checked ~ .nav__label .nav__btn-line {
+        background-color: black;
+    }
+
+    .nav__label {
+        width: 24px;
+        height: 18px;
+        top: 20px;
+        right: 20px;
+        display: block;
+        position: fixed;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .nav__btn-line {
+        width: 100%;
+        height: 3px;
+        display: block;
+        position: absolute;
+        background-color: white;
+        transition: background-color .5s ease;
+    }
+
+    .nav__btn-middle {
+        top: 7px;
+    }
+
+    .nav__btn-bottom {
+        top: 14px;
+    }
+
+    @keyframes top-anime-in {
+        0% {
+            transforme: translate3d(0, 0, 0) rotate(0);
+        }
+        50% {
+            transforme: translate3d(0, 7px, 0) rotate(0);
+        }
+        100% {
+            transforme: translate3d(0, 7px, 0) rotate(45deg);
+        }
+    }
+
+
+</style>
+<body>
+    <div class="main">
+        <header>
+            <nav class="nav" role="navigation" aria-label="Main Navigation">
+                <input type="checkbox" class="nav__checkbox" id="main-nav">
+                <div class="nav__container">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#" class="nav__link">Menu_Item 1</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Menu_Item 2</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Menu_Item 3</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Menu_Item 4</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Menu_Item 5</a></li>
+                    </ul>
+                </div>
+
+                <label for="main-nav" class="nav__label">
+                    <div class="nav_btn" role="button">
+                        <span class="nav__btn-line nav__btn-top"></span>
+                        <span class="nav__btn-line nav__btn-middle"></span>
+                        <span class="nav__btn-line nav__btn-bottom"></span>
+                    </div>
+                </label>
+            </nav>
+        </header>
+    </div>
+    
+</body>
+</html>
