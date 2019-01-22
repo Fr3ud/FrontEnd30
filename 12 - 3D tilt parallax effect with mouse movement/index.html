@@ -6,7 +6,69 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>3D tilt parallax effect with mouse movement</title>
 </head>
+<style>
+
+  body {
+    background-color: black;
+  }
+
+  .tilt {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: perspective(700px) rotateX(0) rotateY(0) scale3d(1, 1, 1);
+    transform-style: preserve-3d;
+  }
+
+  .tilt__wrapper {
+    width: 420px;
+    height: 420px;
+    overflow: hidden;
+    border: 10px solid #dbca01;
+    border-radius: 50%;
+  }
+
+  .tilt__logo {
+    margin-left: -125px;
+    margin-top: -10px;
+  }
+
+  .tilt__hypnotoad,
+  .tilt__hypnotoad--shadow {
+    position: absolute;
+    top: calc(50% - 80px);
+    font-size: 150px;
+    white-space: nowrap;
+    transform: translateZ(80px);
+  }
+
+  .tilt__hypnotoad--shadow {
+    color: white;
+    transform: translate3d(1px, 2px, 70px);
+  }
+
+</style>
 <body>
+  <div class="tilt">
+    <div class="tilt__wrapper">
+        <img 
+        class="tilt__logo"
+        src="https://www.capecontours.co.za/wp-content/uploads/2016/08/Hypnotoad.jpg" 
+        alt="hypnotoad"
+        />
+    </div>
+    <div class="tilt__hypnotoad--shadow">Hypnotoad</div>
+    <div class="tilt__hypnotoad">Hypnotoad</div>
+  </div>
   
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
+<script>
+	VanillaTilt.init(document.querySelector(".tilt"), {
+    max: 25,
+    perspective: 700,
+		speed: 400
+  });
+</script>
 </html>
