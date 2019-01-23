@@ -6,7 +6,88 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Horizontal Text Scrolling with CSS Variables</title>
 </head>
+<style>
+  .main {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 50px 0;
+    display: grid;
+    grid-template-rows: auto 40px auto;
+    overflow-x: hidden;
+  }
+
+  .header,
+  .content {
+    width: 100vw;
+  }
+
+  .header {
+    margin-top: 150px;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .header__heading,
+  .header__subheading {
+    position: fixed;
+    font-size: 200px;
+    white-space: nowrap;
+  }
+
+  .header__heading {
+    top: -100px;
+    transform: translateX(400px);
+  }
+
+  .header__subheading {
+    top: 50px;
+    transform: translateX(600px);
+  }
+
+  .header__img {
+    width: 70vw;
+    height: 600px;
+    display: block;
+    object-fit: cover;
+  }
+
+  .content {
+    width: 70vw;
+    margin: 0 auto;
+    padding: 20px;
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    background-color: tomato;
+    opacity: .5;
+  }
+</style>
 <body>
-  
+  <div class="main">
+    <header class="header">
+      <h1 class="header__heading">Hello</h1>
+      <h2 class="header__subheading">World</h2>
+      <img 
+        src="https://images.unsplash.com/photo-1503169483-419b860b9208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1367&q=80"
+        alt="photo" class="header__img">
+    </header>
+    <div class="content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nulla quibusdam doloribus laboriosam, quam totam voluptatum molestiae quaerat tenetur facilis unde neque officia? Quisquam dolores molestiae quae repellat, obcaecati neque!</p>
+
+    </div>
+  </div>
 </body>
 </html>
