@@ -22,7 +22,7 @@ const createScene = function() {
     nearPlane,
     farPlane,
   );
-  camera.position.set(0, 100, 200);
+  camera.position.set(0, 0, 50);
 
   /**RENDERER */
   renderer = new THREE.WebGLRenderer({
@@ -34,8 +34,32 @@ const createScene = function() {
   container.appendChild(renderer.domElement);
 }
 
+/**SEA */
+Sea = function() {
+  geom = new THREE.CylinderGeometry(5, 5, 10, 8, 1);
+  const material = new THREE.MeshPhongMaterial({
+    color: 0xff00ff,
+  });
+
+  this.mesh = new THREE.Mesh(geom, material);
+}
+
+const createSea = function() {
+  sea = new Sea();
+  scene.add(sea.mesh);
+}
+
+const loop = function() {
+  sea.mesh.rotation.x += .01;
+  sea.mesh.rotation.y += .02;
+  renderer.render(scene, camera);
+  requestAnimationFrame(loop);
+}
+
 const init = function() {
   createScene();
+  createSea();
+  loop();
 }
 
 window.addEventListener('load', init);
